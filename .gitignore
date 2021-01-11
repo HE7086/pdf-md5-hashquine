@@ -1,0 +1,9 @@
+scripts/
+bin/
+project/upper_1_640000/
+project/data/
+project/logs/
+project/*.bin
+project/tex/digits/*.jpg
+project/generated/
+.idea/
