@@ -15,10 +15,6 @@ def write_log(msg: str) -> None:
         print(msg, file=sys.stderr)
 
 
-class UniCollError(Exception):
-    pass
-
-
 # get the image size and its padding size
 def get_image_size_and_padding(file: str) -> tuple[int, int]:
     image_data_size: int = os.path.getsize(file)
@@ -30,6 +26,10 @@ def get_image_size_and_padding(file: str) -> tuple[int, int]:
     else:
         image_padding_size: int = 64 - image_data_size % 64
     return image_data_size, image_padding_size
+
+
+class UniCollError(Exception):
+    pass
 
 
 # get the collision block for given file
