@@ -111,7 +111,7 @@ def run(index: int) -> None:
             # block size - space for 0xfffe + remain size
             # + additional padding for collision
             data += (64 - 2 + l + 7).to_bytes(2, 'big')
-            data += b'\x00' * (64 - l - 4)
+            data += b'\x00' * (64 + l - 4)
         else:
             data += b'\xff\xfe'
             data += (l - 2).to_bytes(2, 'big')
