@@ -18,6 +18,7 @@ A PDF that shows its own MD5
     * [observe while running](#observe-while-running)
     * [combine the data](#combine-the-data)
   * [Example PDF File](#example-pdf-file)
+* [Optimizations](#optimizations)
 * [Reference](#reference)
 
 ## Background
@@ -215,6 +216,14 @@ The script will combine the calculated data into one pdf file, located at `./out
 
 ### Example PDF File
 see [release](https://github.com/HE7086/pdf-md5-hashquine/releases)
+
+## Optimizations
+With aforementioned strategy, we are already able to generate a pdf with its own md5 value. However, every time anything in the pdf header changes, we are forced to recalculate all the collisions.
+
+A way to circumvent this is to force pdflatex to place image data at the very beginning of the file, so that anything that comes after them can be modified conveniently. In particular, we can make use of the command `\immediate` to achieve the expected data placement.
+
+see [md5_optimized.tex](./project/tex/md5_optimized.tex) for details.
+
 
 ## Reference
 * [hashclash](https://github.com/cr-marcstevens/hashclash)
