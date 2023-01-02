@@ -20,7 +20,7 @@ def get_image_size_and_padding(file: str) -> tuple[int, int]:
     image_data_size: int = os.path.getsize(file)
     if image_data_size % 64 == 0:
         image_padding_size: int = 64
-    elif image_data_size % 64 < 4:
+    elif image_data_size % 64 > 60:
         # not enough for comment block
         image_padding_size: int = 64 + 64 - image_data_size % 64
     else:
